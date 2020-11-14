@@ -1,0 +1,94 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+# Change $SCRIPT_DIR to the location of your scripts!
+SCRIPT_DIR=scripts
+command=$SCRIPT_DIR/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+[pomodoro]
+label= 
+color=#FF5555
+command=pomodoro -g
+interval=1
+
+
+# Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
+[mediaplayer]
+label=  
+instance=spotify
+interval=5
+color=#00FF00
+signal=10
+
+
+[volume]
+label=  
+#label=VOL
+interval=once
+signal=10
+color=#00FFFF
+#STEP=5%
+
+
+[backlight]
+command=$SCRIPT_DIR/backlight|sed -r 's/\.w+$/%/'
+label=  
+interval=20
+color=#FFFF00
+#STEP_SIZE=5
+#USE_SUDO=0
+
+
+[batterybar]
+command=$SCRIPT_DIR/batterybar
+color=#FF3399
+label=  
+interval=5
+markup=pango
+min_width=: ■■■■■
+#Discharging colors low to high
+#C1=#FF0027
+#C2=#FF3B05
+#C3=#FFB923
+#C4=#FFD000
+#C5=#E4FF00
+#C6=#ADFF00
+#C7=#6DFF00
+#C8=#10BA00
+#CHARGING_COLOR=#00AFE3
+#FULL_COLOR=#FFFFFF
+#AC_COLOR=#535353#
+
+
+[time]
+label=   
+color=#8C8C8C
+command=date '+%H:%M (%d/%m) '
+interval=60
+
+
